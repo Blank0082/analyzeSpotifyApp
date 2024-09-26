@@ -1,0 +1,105 @@
+.playlist-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.playlist-button {
+    display: block;
+    text-align: left;
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+
+.playlist-button img {
+    width: 320px;
+    height: 320px;
+    object-fit: cover;
+}
+
+.songs-list {
+    flex-grow: 1;
+    overflow-y: auto; /* 允许在歌曲列表内滚动 */
+    max-height: 320px; /* 调整高度以适应内容 */
+    margin-left: 20px; /* 添加间距 */
+    padding: 10px;
+    margin-bottom: 1px; /* Space for the 'next' button */
+}
+.song-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    justify-content: space-between; /* Push content to each end */
+}
+
+.song-item img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin-right: 10px;
+}
+.song-info {
+    flex-grow: 1;
+    margin-right: 10px;
+}
+.song-info p {
+    margin: 0;
+}
+/* 公共按鈕樣式 */
+.button {
+    padding: 10px 15px;
+    border: none;
+    background-color: #1db954; /* Spotify綠色 */
+    color: white;
+    border-radius: 20px;
+    cursor: pointer;
+    outline: none;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #1ed760; /* 深一點的Spotify綠色 */
+}
+
+/* 按鈕被點擊時的動畫 */
+@keyframes button-click {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(0.95);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.button:active {
+    animation: button-click 0.1s;
+}
+.playing {
+    background-color: #d50b0b; /* 暗色背景 */
+}
+
+.playlist-container {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin-left: 20px; /* Distance between playlist and songs list */
+    flex-grow: 1; /* Let the container fill the remaining space */
+    max-height: 330px; /* Maximum height of the container */
+}
+.next-button {
+    bottom: 0;
+}
+.songTotal{
+    font-size: 14px;
+    color: white;
+    margin-bottom: 2px;
+}
+iframe {
+    width: 100%; /* Full width of its container */
+    max-height: 80px; /* Adjust as needed */
+}

@@ -1,0 +1,131 @@
+/* RecommendedSongsModal.css */
+div {
+    color: white;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.modal.open {
+    display: flex;
+}
+
+.modal .songs-container {
+    padding-right: 10px; /* 防止內容與滾動條靠太近 */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* 確保歌曲在容器中居中 */
+    max-height: 80vh; /* 使用vh單位來限制最大高度 */
+    overflow-y: auto;
+}
+
+.modal .song {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+    width: 100%;
+    max-width: 500px; /* 設置一個最大寬度 */
+    margin-bottom: 10px;
+}
+
+.modal .navigation-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    justify-content: space-around;
+    width: 100%;
+    max-width: 500px;
+}
+
+.modal button {
+    padding: 8px 16px;
+    background-color: #1db954;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    outline: none;
+    font-size: 0.9rem;
+}
+
+.modal button:hover {
+    background-color: #1ed760;
+}
+
+.modal button:active {
+    transform: scale(0.98);
+}
+
+.spotify-player {
+    width: 100%;
+    margin: 10px 0;
+}
+
+.navigation-buttons button {
+    background-color: #1db954;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px 20px;
+    margin: 0 5px;
+    border-radius: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background-color 0.3s;
+}
+
+.navigation-buttons button:hover {
+    background-color: #17a74b;
+}
+
+/* 如果需要特殊標示當前播放的歌曲 */
+.song-item.playing {
+    border-left: 5px solid #1db954;
+    padding-left: 10px;
+}
+
+/* 如果需要動畫效果 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.modal.open {
+    animation: fadeIn 0.3s;
+}
+
+@media (max-width: 600px) {
+    .modal .song {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .modal .songs-container {
+        max-height: 70vh;
+    }
+
+    .modal .navigation-buttons {
+        flex-direction: column;
+    }
+}
+.modal {
+    overflow: hidden;
+}
