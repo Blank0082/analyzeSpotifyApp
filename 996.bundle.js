@@ -1,1 +1,1 @@
-"use strict";(self.webpackChunkanalyze_spotify_app=self.webpackChunkanalyze_spotify_app||[]).push([[996],{9996:(e,a,n)=>{function t(){return React.createElement("div",null,"404 not found")}n.r(a),n.d(a,{default:()=>t})}}]);
+"use strict";(self.webpackChunkanalyze_spotify_app=self.webpackChunkanalyze_spotify_app||[]).push([[996],{9996:(a,e,n)=>{n.r(e),n.d(e,{default:()=>s});var p=n(4848);function s(){return(0,p.jsx)("div",{children:"404 not found"})}}}]);
