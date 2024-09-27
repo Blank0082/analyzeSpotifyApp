@@ -27,7 +27,7 @@ export default function RecommendedSongsModal({ isOpen, onClose }) {
                 {recommendedSongs.length > 0 ? (
                     <>
                         <div>已推薦{recommendedSongs.length}首歌曲，目前在第{currentSongIndex + 1}首歌曲。</div>
-                        {SpotifyPlayer(recommendedSongs[currentSongIndex])}
+                        <SpotifyPlayer uri={recommendedSongs[currentSongIndex]} />
                         <div className="navigation-buttons">
                             <button onClick={handlePrevious}>上一首</button>
                             <button onClick={handleNext}>下一首</button>

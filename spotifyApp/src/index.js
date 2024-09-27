@@ -1,26 +1,30 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, HashRouter } from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-const isDevelopment = process.env.NODE_ENV === 'development';
+const isHashRouter = process.env.REACT_APP_HASH_ROUTER === 'true';
+const BrowserBasename = process.env.REACT_APP_BROWSER_ROUTER_BASENAME;
+const Router = isHashRouter ? HashRouter : BrowserRouter;
 
 root.render(
-    isDevelopment ? (
+    isHashRouter ? (
         <React.StrictMode>
-            <BrowserRouter>
+            <Router>
                 <App />
-            </BrowserRouter>
+            </Router>
         </React.StrictMode>
     ) : (
-        <BrowserRouter>
-            <App />
-        </BrowserRouter>
+        <React.StrictMode>
+            <Router basename={BrowserBasename}>
+                <App />
+            </Router>
+        </React.StrictMode>
     )
 );
 

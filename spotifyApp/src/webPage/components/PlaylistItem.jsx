@@ -30,7 +30,7 @@ export default function PlaylistItem({ playlist, token, isOpen, onToggle, playin
         setPlayingUri(playingUri === uri ? null : uri);
     };
     const handleNextStep = async (playlistId) => {
-        const response = await fetch('http://localhost:3001/predict', {
+        const response = await fetch(process.env.REACT_APP_BACKEND_URI, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -67,7 +67,7 @@ export default function PlaylistItem({ playlist, token, isOpen, onToggle, playin
                                             className={`button ${playingUri === song.uri ? 'playing' : ''}`}>
                                             {playingUri === song.uri ? '取消' : '試聽'}
                                         </button>
-                                        {playingUri === song.uri && SpotifyPlayer(song.uri)}
+                                        {playingUri === song.uri && <SpotifyPlayer uri={song.uri} />}
                                     </div>
                                 </div>
                             ))}

@@ -8,10 +8,10 @@ export default function Login() {
     const navigate = useNavigate();
     const [authWindow, setAuthWindow] = useState(null);
     const [isLoginAttempted, setIsLoginAttempted] = useState(false);
+
     useEffect(() => {
         if (!isLoginAttempted) {
-            handleLogin().then();
-            setIsLoginAttempted(true);
+            handleLogin().then(() => setIsLoginAttempted(true));
         }
         const handleAuthMessage = (event) => {
             if (event.data.type === 'authorized') {
@@ -35,7 +35,7 @@ export default function Login() {
             window.removeEventListener('message', handleAuthMessage, false);
             clearInterval(interval);
         };
-    }, [navigate, authWindow]);
+    }, [navigate, isLoginAttempted, authWindow]);
 
     const generateCodeVerifier = () => {
         const array = new Uint32Array(28);
@@ -59,6 +59,7 @@ export default function Login() {
         const codeVerifier = generateCodeVerifier();
         const codeChallenge = base64urlEncode(await sha256(new TextEncoder().encode(codeVerifier)));
         localStorage.setItem('code_verifier', codeVerifier);
+
         const url = new URL('https://accounts.spotify.com/authorize');
         url.search = new URLSearchParams({
             client_id: SpotifyAPI.client_id,
@@ -76,7 +77,9 @@ export default function Login() {
         }
     };
 
-    return (<div>
-        {/*<button onClick={handleLogin}>Login with Spotify</button>*/}
-    </div>);
+    return (
+        <div>
+            {/*<button onClick={handleLogin}>Login with Spotify</button>*/}
+        </div>
+    );
 }

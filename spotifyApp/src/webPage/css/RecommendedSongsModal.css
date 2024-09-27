@@ -22,6 +22,10 @@ div {
 .modal.open {
     display: flex;
 }
+.modal.closed {
+    display: none;
+}
+
 
 .modal .songs-container {
     padding-right: 10px; /* 防止內容與滾動條靠太近 */

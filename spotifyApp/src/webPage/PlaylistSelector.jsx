@@ -1,7 +1,7 @@
-import React, {useState, useEffect, useCallback} from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import Navbar from "./components/Navbar";
 import PlaylistItem from "./components/PlaylistItem";
-import {useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import RecommendedSongsModal from "./components/RecommendedSongsModal";
 
 export default function PlaylistSelector() {
@@ -53,7 +53,7 @@ export default function PlaylistSelector() {
     }, [token, navigate, fetchPlaylists]);
 
     return (<div>
-        <Navbar showRecommended={openModal}/>
+        <Navbar showRecommended={openModal} />
         <div className="list-container">
             <h2>Your Playlists</h2>
             點擊圖片選擇你的音樂清單。
